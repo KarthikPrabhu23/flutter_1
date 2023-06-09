@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFFFFFF)),
-        backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(29, 76, 215, 0.706)),
+        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(46, 59, 98, 1)), 
         
       ),
 
