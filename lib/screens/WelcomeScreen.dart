@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_1/widgets/custom_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -16,7 +17,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 35),
         child: Column(children: [
-          const SizedBox(height: 128.0, width: 75.0,),
+          const SizedBox(
+            height: 128.0,
+            width: 75.0,
+          ),
           Image.asset(
             "assets/gallery.png",
             height: 56,
@@ -24,23 +28,41 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             // top: 128.0,
           ),
           const SizedBox(height: 20),
-          const Text("Please select your language",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w700,
-                fontSize: 20.0,
-              ), 
+          const Text(
+            "Please select your language",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w700,
+              fontSize: 20.0,
+            ),
           ),
           const SizedBox(height: 30.0),
-          const DropdownButtonExample(),
+          Container(
+            height: 56,
+            width: 216,
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+            child: DropdownButtonExample(),
+          ),
+          const SizedBox(height: 30),
+          SizedBox(
+            width: 216,
+            height: 50,
+            child: CustomButton (
+              onPressed: () {},
+              text: "NEXT",
+              
+            ),
+          )
         ]),
       ))),
     );
   }
 }
-
 
 const List<String> list = <String>['English', 'Hindi', 'Konkani'];
 
@@ -58,12 +80,21 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: const TextStyle(
+        color: Color.fromARGB(255, 0, 0, 0),
+        fontFamily: 'Montserrat',
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.w400,
+        fontSize: 16.0,
+      ),
       underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+        margin: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(3.0),
+        decoration: BoxDecoration(
+            color: Colors.deepPurpleAccent,
+            border: Border.all(color: const Color.fromARGB(255, 0, 0, 0))),
       ),
       onChanged: (String? value) {
         // This is called when the user selects an item.
